@@ -11,6 +11,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -33,6 +34,18 @@ public class AppController {
         model.addAttribute("users", users);
         return "allusers";
     }
+
+    /*Test field can remove*/
+    @RequestMapping(value = {"/findUserByName"}, method = RequestMethod.POST)
+    public String findUserByName(@RequestParam("name") ModelMap model, String name) {
+        if (service.findUserByName(name) != null) {
+            model.addAttribute("user", service.findUserByName(name));
+        }
+
+        return "findUserByName";
+    }
+    /*Test field can remove*/
+
 
     /*This method will provide the medium to add a new User*/
     @RequestMapping(value = {"/new"}, method = RequestMethod.GET)

@@ -42,7 +42,7 @@ public class UserServiceImpl implements UserService {
             entity.setName(user.getName());
             entity.setCreatedDate(user.getCreatedDate());
             entity.setAge(user.getAge());
-            entity.setIsAdmin(user.getIsAdmin());
+            entity.setAdmin(user.isAdmin());
         }
     }
 

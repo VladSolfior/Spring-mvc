@@ -28,8 +28,9 @@ public class User {
 
         /*MAYBE CONTAINS BUG!*/
     @NotNull
-    @Column(name = "IS_ADMIN", nullable = false)
-    private int isAdmin;
+    @Column(name = "IS_ADMIN", nullable = false, columnDefinition = "BIT", length = 1)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
+    private Boolean admin;
 
 
 
@@ -51,8 +52,13 @@ public class User {
         return age;
     }
 
-    public int getIsAdmin() {
-        return isAdmin;
+    public boolean isAdmin() {
+
+        if (admin == null) {
+            return false;
+        }
+        else if (admin) return true;
+        return false;
     }
 
     public LocalDate getCreatedDate() {
@@ -71,8 +77,8 @@ public class User {
         this.age = age;
     }
 
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
     }
 
     public void setCreatedDate(LocalDate createdDate) {
@@ -88,8 +94,8 @@ public class User {
 
         if (id != user.id) return false;
         if (age != user.age) return false;
-        if (isAdmin != user.isAdmin) return false;
         if (!name.equals(user.name)) return false;
+        if (!admin.equals(user.admin)) return false;
         return createdDate.equals(user.createdDate);
     }
 
@@ -98,7 +104,7 @@ public class User {
         int result = id;
         result = 31 * result + name.hashCode();
         result = 31 * result + age;
-        result = 31 * result + isAdmin;
+        result = 31 * result + admin.hashCode();
         result = 31 * result + createdDate.hashCode();
         return result;
     }
@@ -109,7 +115,7 @@ public class User {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +
-                ", isAdmin=" + isAdmin +
+                ", admin=" + admin +
                 ", createdDate=" + createdDate +
                 '}';
     }

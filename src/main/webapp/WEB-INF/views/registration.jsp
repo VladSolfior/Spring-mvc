@@ -41,9 +41,9 @@
                 </tr>
 
                 <tr>
-                    <td><label for="isAdmin">User is admin: </label> </td>
-                    <td><form:input path="isAdmin" id="isAdmin"/></td>
-                    <td><form:errors path="isAdmin" cssClass="error"/></td>
+                    <td><label for="admin">User is admin: </label> </td>
+                    <td><form:input path="admin" /></td>
+                    <td><form:errors path="admin" cssClass="error"/></td>
                 </tr>
 
                 <tr>
