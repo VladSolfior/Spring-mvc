@@ -6,7 +6,6 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>User registration confirmation</title>
 
-
 </head>
 <body>
 message : ${success}
