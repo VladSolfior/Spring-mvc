@@ -1,6 +1,7 @@
 package com.vlad.springmvc.service;
 
 import com.vlad.springmvc.model.User;
+import org.springframework.beans.support.PagedListHolder;
 
 import java.util.List;
 
@@ -25,5 +26,7 @@ public interface UserService {
     List<User> findUsersByName(String name);
 
     boolean isUserNameUnique(Integer id, String name);
+
+    PagedListHolder<User> pagedListUsers(int page);
 
 }

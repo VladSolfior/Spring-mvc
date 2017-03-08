@@ -1,10 +1,9 @@
 package com.vlad.springmvc.dao;
 
 import com.vlad.springmvc.model.User;
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.SQLQuery;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -55,6 +54,18 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
 
         return (List<User>) query.list();
     }
+
+    @Override
+    public PagedListHolder<User> pagedListUsers(int page) {
+        Criteria criteria = createEntityCriteria();
+        List<User> list = criteria.list();
+        PagedListHolder<User> pagedListHolder = new PagedListHolder<User>(list);
+        pagedListHolder.setPageSize(10);
+        pagedListHolder.setPage(page);
+        return pagedListHolder;
+
+    }
+    /*Maybe contains bugs*/
 }
 
 

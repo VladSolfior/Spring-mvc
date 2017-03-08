@@ -3,6 +3,7 @@ package com.vlad.springmvc.service;
 import com.vlad.springmvc.dao.UserDao;
 import com.vlad.springmvc.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,5 +72,10 @@ public class UserServiceImpl implements UserService {
     public boolean isUserNameUnique(Integer id, String name) {
         User user = findUserByName(name);
         return (user == null || ((id != null) && (user.getId() == id)));
+    }
+
+    @Override
+    public PagedListHolder<User> pagedListUsers(int page) {
+        return dao.pagedListUsers(page);
     }
 }

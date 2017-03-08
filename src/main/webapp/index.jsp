@@ -17,6 +17,8 @@
               <div class="col-sm-4"> </div>
               <div class="col-sm-4">
                   <a class="btn btn-primary btn-block" href="<c:url value='/list' />">All users</a>
+                  <a class="btn btn-info btn-block" href="<c:url value='/users/1' />">Paged users</a>
+
               </div>
               <div class="col-sm-4"> </div>
           </div>

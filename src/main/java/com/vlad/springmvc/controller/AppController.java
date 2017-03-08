@@ -35,7 +35,18 @@ public class AppController {
         return "allusers";
     }
 
+
+
     /*Test field can remove*/
+    @RequestMapping(value = {"users/{page}"},method = RequestMethod.GET)
+    public String pagedListUsers(@PathVariable("page") int page, ModelMap model) {
+        model.addAttribute("user", new User());
+        model.addAttribute("listUsers", service.pagedListUsers(page-1));
+        return "users";
+    }
+
+
+
     @RequestMapping(value = {"findUserByName/"}, method = RequestMethod.POST)
     public String findUserByName(@RequestParam("name") String name, ModelMap model) {
         if (service.findUserByName(name) != null) {
