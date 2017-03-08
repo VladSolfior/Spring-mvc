@@ -36,14 +36,23 @@
           </tr>
         </c:forEach>
       </table>
-        <%--Test field can remove--%>
+      <%--Test field can remove--%>
       <h3>Search user by name</h3>
-        <form:form method="POST" action="/findUserByName" accept-charset="UTF-8">
+        <form method="POST" action="/findUserByName/" accept-charset="UTF-8">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name">
             <button type="submit">Search</button>
-        </form:form>
-        <%--Test field can remove--%>
+        </form>
+
+        <h3>Search user by ID</h3>
+        <form role="form" method="post" action="/findUserById/" accept-charset="UTF-8">
+            <label for="id">ID:</label>
+            <input type="text" id="id" placeholder="Enter id" name="id">
+            <button type="submit">Search</button>
+        </form>
+
+
+      <%--Test field can remove--%>
 
       <br/>
       <a href="<c:url value='/new' />">Add new user</a>

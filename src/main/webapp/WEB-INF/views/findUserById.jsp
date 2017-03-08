@@ -21,25 +21,20 @@
   <body>
     <header></header>
     <main>
-        <h1>User details</h1>
+      <h1>User details</h1>
       <table>
         <tr>
             <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
         </tr>
-
         <tr>
-            <c:forEach items="${usersByName}" var="user">
-          <tr>
-              <td>${user.id}</td>
-              <td>${user.name}</td>
-              <td>${user.createdDate}</td>
-              <td>${user.age}</td>
-              <td>${user.isAdmin()}</td>
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.createdDate}</td>
+          <td>${user.age}</td>
+          <td>${user.isAdmin()}</td>
 
-              <td><a href="<c:url value='/edit-${user.name}-user' />">Edit ${user.name}</a></td>
-              <td><a href="<c:url value='/delete-${user.name}-user' />">delete</a></td>
-          </tr>
-            </c:forEach>
+          <td><a href="<c:url value='/edit-${user.name}-user' />">Edit ${user.name}</a></td>
+          <td><a href="<c:url value='/delete-${user.name}-user' />">delete</a></td>
         </tr>
       </table>
       <br/>

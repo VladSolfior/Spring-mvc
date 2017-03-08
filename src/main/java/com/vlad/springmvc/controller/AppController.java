@@ -36,13 +36,19 @@ public class AppController {
     }
 
     /*Test field can remove*/
-    @RequestMapping(value = {"/findUserByName"}, method = RequestMethod.POST)
-    public String findUserByName(@RequestParam("name") ModelMap model, String name) {
+    @RequestMapping(value = {"findUserByName/"}, method = RequestMethod.POST)
+    public String findUserByName(@RequestParam("name") String name, ModelMap model) {
         if (service.findUserByName(name) != null) {
-            model.addAttribute("user", service.findUserByName(name));
+            model.addAttribute("usersByName", service.findUsersByName(name));
         }
 
         return "findUserByName";
+    }
+
+    @RequestMapping(value = "findUserById/", method = RequestMethod.POST)
+    public String findUserById(@RequestParam("id") int id, ModelMap model){
+        model.addAttribute("user", service.findById(id));
+        return "findUserById";
     }
     /*Test field can remove*/
 

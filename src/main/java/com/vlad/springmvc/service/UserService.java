@@ -22,6 +22,8 @@ public interface UserService {
 
     User findUserByName(String name);
 
+    List<User> findUsersByName(String name);
+
     boolean isUserNameUnique(Integer id, String name);
 
 }
