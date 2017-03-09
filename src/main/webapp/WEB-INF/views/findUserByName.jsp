@@ -5,37 +5,60 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>All users</title>
+  <title>Users found by name</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
   <body>
     <header></header>
     <main>
-        <h1>User details</h1>
-      <table>
-        <tr>
-            <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
-        </tr>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"> </div>
+                <div class="col-sm-8">
+                    <h2 class="text-center text-muted">Users found searching by name</h2>
 
-        <tr>
-            <c:forEach items="${usersByName}" var="user">
-          <tr>
-          <td>${user.id}</td>
-          <td>${user.name}</td>
-          <td>${user.createdDate}</td>
-          <td>${user.age}</td>
-          <td>${user.isAdmin()}</td>
+                    <div class="table-responsive">
 
-          <td><a href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a></td>
-          <td><a href="<c:url value='/delete-${user.id}-user' />">Delete</a></td>
-          </tr>
-            </c:forEach>
-        </tr>
-      </table>
-      <br/>
-      <a href="<c:url value='/users/1' />">To all users</a>
+                        <table class="table table-hover table-condensed">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Created date</th>
+                                <th>Age</th>
+                                <th>Is admin</th>
+                                <td></td>
+                            </tr>
+                            </thead>
+
+                            <c:forEach items="${usersByName}" var="user">
+                                <tbody>
+                                <tr>
+                                    <td>${user.id}</td>
+                                    <td>${user.name}</td>
+                                    <td>${user.createdDate}</td>
+                                    <td>${user.age}</td>
+                                    <td>${user.isAdmin()}</td>
+
+                                    <td>
+                                        <a class="btn btn-warning" style="text-decoration: none!important;" href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-danger" style="text-decoration: none!important;" href="<c:url value='/delete-${user.id}-user' />">Delete</a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </c:forEach>
+                        </table>
+                    </div>
+                    <a class="btn btn-info" href="<c:url value='/users/1' />">List of all users</a>
+                </div>
+                <div class="col-sm-2"> </div>
+            </div>
+        </div>
     </main>
     <footer></footer>
   </body>
 </html>
-<%--Test field can remove--%>

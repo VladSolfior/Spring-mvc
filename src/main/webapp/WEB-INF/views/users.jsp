@@ -14,69 +14,118 @@
   <body>
     <header></header>
     <main>
-      <div class="jumbotron text-center">
-          <h2>List existing of Users</h2>
-      </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-2"> </div>
+                <div class="col-sm-8">
+
+                    <h2 class="text-muted text-center">List of existing of Users</h2>
+
+                    <div class="table-responsive">
+                        <c:if test="${!empty listUsers}">
+                            <table class="table table-hover table-condensed">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Created date</th>
+                                    <th>Age</th>
+                                    <th>Is admin</th>
+                                    <td></td>
+                                </tr>
+                                </thead>
+
+                                <c:forEach items="${listUsers.pageList}" var="user">
+                                    <tbody>
+                                    <tr>
+                                        <td>${user.id}</td>
+                                        <td>${user.name}</td>
+                                        <td>${user.createdDate}</td>
+                                        <td>${user.age}</td>
+                                        <td>${user.isAdmin()}</td>
+
+                                        <td>
+                                            <a class="btn btn-warning" style="text-decoration: none!important;" href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a>
+                                        </td>
+                                        <td>
+                                            <a class="btn btn-danger" style="text-decoration: none!important;" href="<c:url value='/delete-${user.id}-user' />">Delete</a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </c:forEach>
+                            </table>
+
+                            <nav>
+                                <ul class="pager">
+
+                                    <li><a href=${listUsers.page - 1>0?listUsers.page:1}>Previous</a></li>
+
+                                        ${listUsers.nextPage()}
+
+                                    <li><a href=${listUsers.page + 1}>Next</a></li>
+                                </ul>
+                            </nav>
+
+                        </c:if>
+                    </div>
+
+                </div>
+                <div class="col-sm-2"> </div>
+            </div>
 
 
+            <div class="container row text-center">
+                <a class="btn btn-default" href="<c:url value='/new' />">Add new user</a>
+            </div>
 
-            <c:if test="${!empty listUsers}">
-                <table>
-                    <tr>
-                        <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
-                    </tr>
-                    <c:forEach items="${listUsers.pageList}" var="user">
-                        <tr>
-                            <td>${user.id}</td>
-                            <td>${user.name}</td>
-                            <td>${user.createdDate}</td>
-                            <td>${user.age}</td>
-                            <td>${user.isAdmin()}</td>
+            <div class="container row">
+                <div class="col-sm-4"> </div>
 
-                            <td><a href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a></td>
-                            <td><a href="<c:url value='/delete-${user.id}-user' />">Delete</a></td>
-                        </tr>
+                <div class="col-sm-4">
+                    <h3 class="text-muted text-center">Search users by name</h3>
 
+                    <form method="POST" action="/findUserByName/" accept-charset="UTF-8">
+                        <div class="form-group form-horizontal">
+                            <label for="name">Name:</label>
+                            <input class="form-control" type="text" id="name" placeholder="Enter name" name="name">
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
 
-                    </c:forEach>
-                </table>
+                    </form>
+                </div>
+                <div class="col-sm-4"> </div>
+            </div>
 
+            <div class="container row">
+                <div class="col-sm-4"> </div>
 
-                <nav>
-                    <ul class="pager">
-                        <li><a href=${listUsers.page-1>0?listUsers.page:1}>Previous</a></li>
+                <div class="col-sm-4">
+                    <h3 class="text-muted text-center">Or, search user by ID</h3>
+                    <form role="form" method="post" action="/findUserById/" accept-charset="UTF-8">
+                        <div class="form-group form-horizontal">
+                            <label for="id">ID:</label>
+                            <input class="form-control" type="text" id="id" placeholder="Enter id" name="id">
+                        </div>
+                        <button class="btn btn-default" type="submit">Search</button>
 
-                            <%--${listUsers.nextPage()}--%>
+                    </form>
+                </div>
 
-                        <li><a href=${listUsers.page+1}>Next</a></li>
-                    </ul>
-                </nav>
-
-            </c:if>
-
+                <div class="col-sm-4"> </div>
+            </div>
+        </div>
 
 
 
       <%--Test field can remove--%>
-      <h3>Search user by name</h3>
-        <form method="POST" action="/findUserByName/" accept-charset="UTF-8">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Search</button>
-        </form>
 
-        <h3>Search user by ID</h3>
-        <form role="form" method="post" action="/findUserById/" accept-charset="UTF-8">
-            <label for="id">ID:</label>
-            <input type="text" id="id" placeholder="Enter id" name="id">
-            <button type="submit">Search</button>
-        </form>
+
 
 
       <%--Test field can remove--%>
 
       <br/>
-      <a href="<c:url value='/new' />">Add new user</a>
+
     </main>
     <footer></footer>
   </body>
