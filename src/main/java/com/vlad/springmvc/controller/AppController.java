@@ -100,9 +100,9 @@ public class AppController {
     /*
      * This method will provide the medium to update an existing user.
      */
-    @RequestMapping(value = { "/edit-{name}-user" }, method = RequestMethod.GET)
-    public String editUser(@PathVariable String name, ModelMap model) {
-        User user = service.findUserByName(name);
+    @RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.GET)
+    public String editUser(@PathVariable Integer id, ModelMap model) {
+        User user = service.findById(id);
         model.addAttribute("user", user);
         model.addAttribute("edit", true);
         return "registration";
@@ -112,9 +112,9 @@ public class AppController {
      * This method will be called on form submission, handling POST request for
      * updating employee in database. It also validates the user input
      */
-    @RequestMapping(value = { "/edit-{name}-user" }, method = RequestMethod.POST)
+    @RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
-                                 ModelMap model, @PathVariable String name) {
+                                 ModelMap model, @PathVariable Integer id) {
 
         if (result.hasErrors()) {
             return "registration";
@@ -140,7 +140,7 @@ public class AppController {
     @RequestMapping(value = {"/delete-{name}-user"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable String name) {
         service.deleteUserByName(name);
-        return "redirect:/list";
+        return "redirect:/users/1";
     }
 
 

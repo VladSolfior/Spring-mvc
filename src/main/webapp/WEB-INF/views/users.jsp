@@ -33,8 +33,8 @@
                             <td>${user.age}</td>
                             <td>${user.isAdmin()}</td>
 
-                            <td><a href="<c:url value='/edit-${user.name}-user' />">Edit ${user.name}</a></td>
-                            <td><a href="<c:url value='/delete-${user.name}-user' />">Delete</a></td>
+                            <td><a href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a></td>
+                            <td><a href="<c:url value='/delete-${user.id}-user' />">Delete</a></td>
                         </tr>
 
 
