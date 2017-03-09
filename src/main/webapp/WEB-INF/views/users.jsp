@@ -5,20 +5,17 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>All users</title>
+  <title>Paged users</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-  <%--<style>--%>
-    <%--tr:first-child{--%>
-      <%--font-weight: bold;--%>
-      <%--background-color: #C6C9C4;--%>
-    <%--}--%>
-  <%--</style>--%>
 
 </head>
   <body>
     <header></header>
     <main>
-      <h2>List existing of Users</h2>
+      <div class="jumbotron text-center">List existing of Users</div>
+
       <table>
         <tr>
             <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
@@ -49,6 +46,7 @@
           </nav>
 
         </c:if>
+      </table>
 
 
       <%--Test field can remove--%>

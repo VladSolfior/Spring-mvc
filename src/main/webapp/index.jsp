@@ -12,13 +12,13 @@
 
   <header></header>
   <main>
-      <div style="text-align: center" class="page-header"> A simple users CRUD app
+      <div style="text-align: center" class="page-header">
+          <h1>A simple users CRUD app</h1>
           <div class="row">
               <div class="col-sm-4"> </div>
               <div class="col-sm-4">
                   <a class="btn btn-primary btn-block" href="<c:url value='/list' />">All users</a>
                   <a class="btn btn-info btn-block" href="<c:url value='/users/1' />">Paged users</a>
-
               </div>
               <div class="col-sm-4"> </div>
           </div>
