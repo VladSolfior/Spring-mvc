@@ -25,8 +25,6 @@ public interface UserService {
 
     List<User> findUsersByName(String name);
 
-    boolean isUserNameUnique(Integer id, String name);
-
     PagedListHolder<User> pagedListUsers(int page);
 
 }

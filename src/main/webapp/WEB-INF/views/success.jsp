@@ -4,14 +4,22 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>User registration confirmation</title>
+    <title>User registration confirm</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </head>
 <body>
-message : ${success}
-<br/>
-<br/>
-Go back to <a href="<c:url value='/users/1' />">List of all users</a>
+    <header></header>
+    <main>
+        <div class="container">
+            <div class="alert alert-success alert-dismissable">
+                message: ${success}
+            </div>
+            <a class="btn btn-info" href="<c:url value='/users/1' />">List of all users</a>
+        </div>
+    </main>
+    <footer></footer>
+
 
 </body>
 </html>

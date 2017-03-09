@@ -24,15 +24,7 @@ public class AppController {
     @Autowired
     MessageSource messageSource;
 
-    /*This method will list all existing Users*/
-//    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-//    public String listUsers(ModelMap model) {
-//        List<User> users = service.findAllUsers();
-//        model.addAttribute("users", users);
-//        return "allusers";
-//    }
-
-    @RequestMapping(value = {"users/{page}"},method = RequestMethod.GET)
+    @RequestMapping(value = {"users/{page}", "/"},method = RequestMethod.GET)
     public String pagedListUsers(@PathVariable("page") int page, ModelMap model) {
         model.addAttribute("user", new User());
         model.addAttribute("listUsers", service.pagedListUsers(page-1));
@@ -40,7 +32,6 @@ public class AppController {
     }
 
 
-    /*Test field can remove*/
     @RequestMapping(value = {"findUserByName/"}, method = RequestMethod.POST)
     public String findUserByName(@RequestParam("name") String name, ModelMap model) {
         if (service.findUsersByName(name) != null) {
@@ -55,10 +46,8 @@ public class AppController {
         model.addAttribute("user", service.findById(id));
         return "findUserById";
     }
-    /*Test field can remove*/
 
 
-    /*This method will provide the medium to add a new User*/
     @RequestMapping(value = {"/new"}, method = RequestMethod.GET)
     public String newUser(ModelMap model) {
         User user = new User();
@@ -67,10 +56,7 @@ public class AppController {
         return "registration";
     }
 
-    /*
-     * This method will be called on form submission, handling POST request for
-     * saving Users in database. It also validates the user input
-     */
+
     @RequestMapping(value = {"/new"}, method = RequestMethod.POST)
     public String saveUser(@Valid User user, BindingResult result,
                            ModelMap model) {
@@ -79,11 +65,6 @@ public class AppController {
             return "registration";
         }
 
-        /*if (!service.isUserNameUnique(user.getId(), user.getName())) {
-            FieldError nameError = new FieldError("user", "name", messageSource.getMessage("non.unique.name", new String[] {user.getName()}, Locale.getDefault()));
-            result.addError(nameError);
-            return "registration";
-        }*/
 
         service.saveUser(user);
 
@@ -91,9 +72,7 @@ public class AppController {
         return "success";
     }
 
-    /*
-     * This method will provide the medium to update an existing user.
-     */
+
     @RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.GET)
     public String editUser(@PathVariable Integer id, ModelMap model) {
         User user = service.findById(id);
@@ -102,10 +81,7 @@ public class AppController {
         return "registration";
     }
 
-    /*
-     * This method will be called on form submission, handling POST request for
-     * updating employee in database. It also validates the user input
-     */
+
     @RequestMapping(value = { "/edit-{id}-user" }, method = RequestMethod.POST)
     public String updateUser(@Valid User user, BindingResult result,
                                  ModelMap model, @PathVariable Integer id) {
@@ -114,12 +90,6 @@ public class AppController {
             return "registration";
         }
 
-        /*if(!service.isUserNameUnique(user.getId(), user.getName())){
-            FieldError nameError =new FieldError("user","name",
-                    messageSource.getMessage("non.unique.name", new String[]{user.getName()}, Locale.getDefault()));
-            result.addError(nameError);
-            return "registration";
-        }*/
 
         service.updateUser(user);
 
@@ -127,10 +97,6 @@ public class AppController {
         return "success";
     }
 
-    /*
-     * This method will delete an user by it's Name value.
-     *
-     */
     @RequestMapping(value = {"/delete-{id}-user"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable Integer id) {
 

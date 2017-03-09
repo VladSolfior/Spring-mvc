@@ -69,12 +69,6 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean isUserNameUnique(Integer id, String name) {
-        User user = findUserByName(name);
-        return (user == null || ((id != null) && (user.getId() == id)));
-    }
-
-    @Override
     public PagedListHolder<User> pagedListUsers(int page) {
         return dao.pagedListUsers(page);
     }
