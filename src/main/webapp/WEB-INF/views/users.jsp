@@ -14,39 +14,47 @@
   <body>
     <header></header>
     <main>
-      <div class="jumbotron text-center">List existing of Users</div>
+      <div class="jumbotron text-center">
+          <h2>List existing of Users</h2>
+      </div>
 
-      <table>
-        <tr>
-            <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
-        </tr>
-        <c:if test="${!empty listUsers}">
-        <tr>
-          <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
-        </tr>
-            <c:forEach items="${listUsers.pageList}" var="user">
-                <tr>
-                    <td>${user.id}</td>
-                    <td>${user.name}</td>
-                    <td>${user.createdDate}</td>
-                    <td>${user.age}</td>
-                    <td>${user.isAdmin()}</td>
 
-                    <td><a href="<c:url value='/edit-${user.name}-user' />">Edit ${user.name}</a></td>
-                    <td><a href="<c:url value='/delete-${user.name}-user' />">Delete</a></td>
-                </tr>
-            </c:forEach>
 
-          <nav>
-              <ul class="pager">
-                  <li><a href=${listUsers.page-1>0?listUsers.page:1}>Previous</a></li>
-                      ${listUsers.nextPage()}
-                  <li><a href=${listUsers.page+1}>Next</a></li>
-              </ul>
-          </nav>
+            <c:if test="${!empty listUsers}">
+                <table>
+                    <tr>
+                        <td>Id</td><td>NAME</td><td>Created Date</td><td>Age</td><td>Admin</td><td></td>
+                    </tr>
+                    <c:forEach items="${listUsers.pageList}" var="user">
+                        <tr>
+                            <td>${user.id}</td>
+                            <td>${user.name}</td>
+                            <td>${user.createdDate}</td>
+                            <td>${user.age}</td>
+                            <td>${user.isAdmin()}</td>
 
-        </c:if>
-      </table>
+                            <td><a href="<c:url value='/edit-${user.name}-user' />">Edit ${user.name}</a></td>
+                            <td><a href="<c:url value='/delete-${user.name}-user' />">Delete</a></td>
+                        </tr>
+
+
+                    </c:forEach>
+                </table>
+
+
+                <nav>
+                    <ul class="pager">
+                        <li><a href=${listUsers.page-1>0?listUsers.page:1}>Previous</a></li>
+
+                            <%--${listUsers.nextPage()}--%>
+
+                        <li><a href=${listUsers.page+1}>Next</a></li>
+                    </ul>
+                </nav>
+
+            </c:if>
+
+
 
 
       <%--Test field can remove--%>
