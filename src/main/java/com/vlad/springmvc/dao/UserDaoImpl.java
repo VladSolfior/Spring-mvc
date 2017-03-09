@@ -24,9 +24,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
     @Override
-    public void deleteUserByName(String name) {
-        Query query = getSession().createSQLQuery("delete from test where name = :name");
-        query.setString("name", name);
+    public void deleteUserById(int id) {
+        Query query = getSession().createSQLQuery("delete from test where id = :id");
+        query.setInteger("id", id);
         query.executeUpdate();
     }
 
@@ -48,9 +48,9 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     @Override
     @SuppressWarnings("unchecked")
     public List<User> findUsersByName(String name) {
-        SQLQuery query = getSession().createSQLQuery("SELECT {usr.*} from test usr where usr.name = :name");
+        SQLQuery query = getSession().createSQLQuery("SELECT * FROM test.test WHERE name = :name");
         query.setParameter("name", name);
-        query.addEntity("usr", User.class);
+        query.addEntity(User.class);
 
         return (List<User>) query.list();
     }

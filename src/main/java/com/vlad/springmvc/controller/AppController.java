@@ -7,15 +7,12 @@ import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.List;
-import java.util.Locale;
 
 @Controller
 @RequestMapping("/")
@@ -28,16 +25,13 @@ public class AppController {
     MessageSource messageSource;
 
     /*This method will list all existing Users*/
-    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
-    public String listUsers(ModelMap model) {
-        List<User> users = service.findAllUsers();
-        model.addAttribute("users", users);
-        return "allusers";
-    }
+//    @RequestMapping(value = {"/", "/list"}, method = RequestMethod.GET)
+//    public String listUsers(ModelMap model) {
+//        List<User> users = service.findAllUsers();
+//        model.addAttribute("users", users);
+//        return "allusers";
+//    }
 
-
-
-    /*Test field can remove*/
     @RequestMapping(value = {"users/{page}"},method = RequestMethod.GET)
     public String pagedListUsers(@PathVariable("page") int page, ModelMap model) {
         model.addAttribute("user", new User());
@@ -46,10 +40,10 @@ public class AppController {
     }
 
 
-
+    /*Test field can remove*/
     @RequestMapping(value = {"findUserByName/"}, method = RequestMethod.POST)
     public String findUserByName(@RequestParam("name") String name, ModelMap model) {
-        if (service.findUserByName(name) != null) {
+        if (service.findUsersByName(name) != null) {
             model.addAttribute("usersByName", service.findUsersByName(name));
         }
 
@@ -85,11 +79,11 @@ public class AppController {
             return "registration";
         }
 
-        if (!service.isUserNameUnique(user.getId(), user.getName())) {
+        /*if (!service.isUserNameUnique(user.getId(), user.getName())) {
             FieldError nameError = new FieldError("user", "name", messageSource.getMessage("non.unique.name", new String[] {user.getName()}, Locale.getDefault()));
             result.addError(nameError);
             return "registration";
-        }
+        }*/
 
         service.saveUser(user);
 
@@ -120,12 +114,12 @@ public class AppController {
             return "registration";
         }
 
-        if(!service.isUserNameUnique(user.getId(), user.getName())){
+        /*if(!service.isUserNameUnique(user.getId(), user.getName())){
             FieldError nameError =new FieldError("user","name",
                     messageSource.getMessage("non.unique.name", new String[]{user.getName()}, Locale.getDefault()));
             result.addError(nameError);
             return "registration";
-        }
+        }*/
 
         service.updateUser(user);
 
@@ -137,9 +131,9 @@ public class AppController {
      * This method will delete an user by it's Name value.
      *
      */
-    @RequestMapping(value = {"/delete-{name}-user"}, method = RequestMethod.GET)
-    public String deleteUser(@PathVariable String name) {
-        service.deleteUserByName(name);
+    @RequestMapping(value = {"/delete-{id}-user"}, method = RequestMethod.GET)
+    public String deleteUser(@PathVariable Integer id) {
+        service.deleteUserById(id);
         return "redirect:/users/1";
     }
 
