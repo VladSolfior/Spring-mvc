@@ -43,7 +43,7 @@
                                     <td>${user.isAdmin()}</td>
 
                                     <td>
-                                        <a class="btn btn-warning" style="text-decoration: none!important;" href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a>
+                                        <a class="btn btn-warning" style="text-decoration: none!important;" href="<c:url value='/edit-${user.id}-user' />">Edit</a>
                                     </td>
                                     <td>
                                         <a class="btn btn-danger" style="text-decoration: none!important;" href="<c:url value='/delete-${user.id}-user' />">Delete</a>
@@ -53,7 +53,7 @@
                             </c:forEach>
                         </table>
                     </div>
-                    <a class="btn btn-info" href="<c:url value='/users/1' />">List of all users</a>
+                    <a class="btn btn-default" href="<c:url value='/users/1' />">List of all users</a>
                 </div>
                 <div class="col-sm-2"> </div>
             </div>

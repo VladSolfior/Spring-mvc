@@ -1,12 +1,12 @@
 package com.vlad.springmvc.model;
 
 import org.hibernate.annotations.Type;
-import org.joda.time.LocalDate;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 @Table(name = "TEST")
@@ -38,8 +38,8 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "CREATED_DATE", nullable = false)
-    @Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
-    private LocalDate createdDate;
+    //@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+    private Date createdDate;
 
     public int getId() {
         return id;
@@ -62,7 +62,7 @@ public class User {
         return false;
     }
 
-    public LocalDate getCreatedDate() {
+    public Date getCreatedDate() {
         return createdDate;
     }
 
@@ -82,7 +82,7 @@ public class User {
         this.admin = admin;
     }
 
-    public void setCreatedDate(LocalDate createdDate) {
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
 

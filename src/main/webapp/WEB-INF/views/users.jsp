@@ -45,10 +45,10 @@
                                         <td>${user.isAdmin()}</td>
 
                                         <td>
-                                            <a class="btn btn-warning" style="text-decoration: none!important;" href="<c:url value='/edit-${user.id}-user' />">Edit ${user.name}</a>
+                                            <a class="btn btn-warning" style="text-decoration: none !important;" href="<c:url value='/edit-${user.id}-user' />">Edit</a>
                                         </td>
                                         <td>
-                                            <a class="btn btn-danger" style="text-decoration: none!important;" href="<c:url value='/delete-${user.id}-user' />">Delete</a>
+                                            <a class="btn btn-danger" style="text-decoration: none !important;" href="<c:url value='/delete-${user.id}-user' />">Delete</a>
                                         </td>
                                     </tr>
                                     </tbody>
