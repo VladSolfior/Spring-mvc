@@ -1,6 +1,6 @@
 DROP TABLE `test`.`test`;
 CREATE TABLE `test`.`test` (
-  `id` INT(8) NOT NULL,
+  `id` INT(8) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(25) NOT NULL,
   `created_date` DATE NOT NULL,
   `age` INT(11) NOT NULL,
