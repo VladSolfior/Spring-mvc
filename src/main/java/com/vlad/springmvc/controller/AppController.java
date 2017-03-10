@@ -43,7 +43,9 @@ public class AppController {
 
     @RequestMapping(value = "findUserById/", method = RequestMethod.POST)
     public String findUserById(@RequestParam("id") int id, ModelMap model){
-        model.addAttribute("user", service.findById(id));
+        if (service.findById(id) != null) {
+            model.addAttribute("user", service.findById(id));
+        }
         return "findUserById";
     }
 

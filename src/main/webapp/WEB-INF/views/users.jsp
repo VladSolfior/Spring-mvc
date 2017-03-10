@@ -79,7 +79,7 @@
             </div>
 
             <div class="container row">
-                <div class="col-sm-4"> </div>
+                <div class="col-sm-2"> </div>
 
                 <div class="col-sm-4">
                     <h3 class="text-muted text-center">Search users by name</h3>
@@ -93,11 +93,6 @@
 
                     </form>
                 </div>
-                <div class="col-sm-4"> </div>
-            </div>
-
-            <div class="container row">
-                <div class="col-sm-4"> </div>
 
                 <div class="col-sm-4">
                     <h3 class="text-muted text-center">Or, search user by ID</h3>
@@ -110,21 +105,10 @@
 
                     </form>
                 </div>
-
-                <div class="col-sm-4"> </div>
+                <div class="col-sm-2"> </div>
             </div>
         </div>
 
-
-
-      <%--Test field can remove--%>
-
-
-
-
-      <%--Test field can remove--%>
-
-      <br/>
 
     </main>
     <footer></footer>
