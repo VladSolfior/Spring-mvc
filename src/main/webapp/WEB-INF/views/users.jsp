@@ -99,7 +99,7 @@
                     <form role="form" method="post" action="/findUserById/" accept-charset="UTF-8">
                         <div class="form-group form-horizontal">
                             <label for="id">ID:</label>
-                            <input class="form-control" type="text" id="id" placeholder="Enter id" name="id">
+                            <input class="form-control" type="number" id="id" placeholder="Enter id" name="id">
                         </div>
                         <button class="btn btn-default" type="submit">Search</button>
 
