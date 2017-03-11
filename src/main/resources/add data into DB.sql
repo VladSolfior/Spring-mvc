@@ -1,4 +1,6 @@
-CREATE TABLE `test`.`test` (
+USE test;
+DROP TABLE IF EXISTS `test`;
+CREATE TABLE  `test` (
   `id` INT(8) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(25) NOT NULL,
   `created_date` TIMESTAMP NOT NULL,
