@@ -1,4 +1,3 @@
-DROP TABLE `test`.`test`;
 CREATE TABLE `test`.`test` (
   `id` INT(8) NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(25) NOT NULL,
