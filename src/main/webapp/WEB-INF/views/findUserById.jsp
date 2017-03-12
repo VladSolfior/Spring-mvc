@@ -53,6 +53,11 @@
                                 </tbody>
 
                             </c:if>
+                            <c:if test="${user == null}">
+                                <div class="well">
+                                    message: ${notFound}
+                                </div>
+                            </c:if>
 
 
                         </table>

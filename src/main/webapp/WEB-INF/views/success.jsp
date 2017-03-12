@@ -12,7 +12,7 @@
     <header></header>
     <main>
         <div class="container">
-            <div class="alert alert-success alert-dismissable">
+            <div class="well">
                 message: ${success}
             </div>
             <a class="btn btn-info" href="<c:url value='/users/1' />">List of all users</a>

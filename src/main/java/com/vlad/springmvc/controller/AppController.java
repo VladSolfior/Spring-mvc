@@ -46,6 +46,9 @@ public class AppController {
         if (service.findById(id) != null) {
             model.addAttribute("user", service.findById(id));
         }
+
+
+
         return "findUserById";
     }
 
@@ -67,10 +70,9 @@ public class AppController {
             return "registration";
         }
 
-
         service.saveUser(user);
 
-        model.addAttribute("success", "User " + user.getName() + " updated successfully");
+        model.addAttribute("success", "User " + user.getName() + " created successfully");
         return "success";
     }
 

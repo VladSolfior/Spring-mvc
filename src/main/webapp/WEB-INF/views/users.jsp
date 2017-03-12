@@ -58,11 +58,12 @@
                             <nav>
                                 <ul class="pager">
 
-                                    <li><a href=${listUsers.page - 1>0?listUsers.page:1}>Previous</a></li>
+                                    <li><a href=${listUsers.page - 1>0?listUsers.page:1}>Previous page</a></li>
 
                                         ${listUsers.nextPage()}
 
-                                    <li><a href=${listUsers.page + 1}>Next</a></li>
+                                    <li><a href=${listUsers.page + 1}>Next page</a></li>
+                                    <li><a href=${listUsers.getPageCount()}>Last page</a></li>
                                 </ul>
                             </nav>
 
