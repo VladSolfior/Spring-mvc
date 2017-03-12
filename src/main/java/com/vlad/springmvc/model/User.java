@@ -38,7 +38,6 @@ public class User {
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "dd/MM/yyyy")
     @Column(name = "CREATED_DATE", nullable = false)
-    //@Type(type = "org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
     private Date createdDate;
 
     public int getId() {

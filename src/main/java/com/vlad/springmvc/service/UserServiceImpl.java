@@ -31,11 +31,6 @@ public class UserServiceImpl implements UserService {
         dao.saveUser(user);
     }
 
-    /*
-     * Since the method is running with Transaction, No need to call hibernate update explicitly.
-     * Just fetch the entity from db and update it with proper values within transaction.
-     * It will be updated in db once transaction ends.
-     */
     @Override
     public void updateUser(User user) {
         User entity = dao.findById(user.getId());
@@ -52,16 +47,6 @@ public class UserServiceImpl implements UserService {
         dao.deleteUserById(id);
 
     }
-
-    @Override
-    public List<User> findAllUsers() {
-        return dao.findAllUsers();
-    }
-
-//    @Override
-//    public User findUserByName(String name) {
-//        return dao.findUserByName(name);
-//    }
 
     @Override
     public List<User> findUsersByName(String name) {

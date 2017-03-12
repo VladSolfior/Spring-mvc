@@ -31,20 +31,6 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         query.executeUpdate();
     }
 
-    @Override
-    @SuppressWarnings("unchecked")
-    public List<User> findAllUsers() {
-        Criteria criteria = createEntityCriteria();
-        return (List<User>) criteria.list();
-    }
-
-//    @Override
-//    public User findUserByName(String name) {
-//        Criteria criteria = createEntityCriteria();
-//        criteria.add(Restrictions.eq("name", name));
-//        return (User) criteria.uniqueResult();
-//    }
-
     /*Maybe contains bugs*/
     @Override
     @SuppressWarnings("unchecked")

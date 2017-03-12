@@ -19,10 +19,6 @@ public interface UserService {
 
     void deleteUserById(int id);
 
-    List<User> findAllUsers();
-
-//    User findUserByName(String name);
-
     List<User> findUsersByName(String name);
 
     PagedListHolder<User> pagedListUsers(int page);
