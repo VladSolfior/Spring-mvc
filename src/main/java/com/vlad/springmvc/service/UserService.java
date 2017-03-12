@@ -21,7 +21,7 @@ public interface UserService {
 
     List<User> findAllUsers();
 
-    User findUserByName(String name);
+//    User findUserByName(String name);
 
     List<User> findUsersByName(String name);
 

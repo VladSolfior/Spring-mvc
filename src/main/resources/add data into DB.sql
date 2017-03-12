@@ -22,4 +22,4 @@ INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALU
 INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALUES ('11', 'User', '2011/1/1', '12', b'0');
 INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALUES ('12', 'User12', '2002/1/1', '12', b'0');
 INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALUES ('13', 'User13', '2016/1/1', '11', b'1');
-INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALUES ('14', 'User14', '2015/1/1', '12', b'0');
+INSERT INTO `test`.`test` (`id`, `name`, `created_date`, `age`, `is_admin`) VALUES ('14', 'FinalUser', '2015/1/1', '12', b'0');

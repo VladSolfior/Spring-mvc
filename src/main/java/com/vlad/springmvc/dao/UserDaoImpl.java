@@ -1,8 +1,9 @@
 package com.vlad.springmvc.dao;
 
 import com.vlad.springmvc.model.User;
-import org.hibernate.*;
-import org.hibernate.criterion.Restrictions;
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.SQLQuery;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Repository;
 
@@ -37,12 +38,12 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         return (List<User>) criteria.list();
     }
 
-    @Override
-    public User findUserByName(String name) {
-        Criteria criteria = createEntityCriteria();
-        criteria.add(Restrictions.eq("name", name));
-        return (User) criteria.uniqueResult();
-    }
+//    @Override
+//    public User findUserByName(String name) {
+//        Criteria criteria = createEntityCriteria();
+//        criteria.add(Restrictions.eq("name", name));
+//        return (User) criteria.uniqueResult();
+//    }
 
     /*Maybe contains bugs*/
     @Override
