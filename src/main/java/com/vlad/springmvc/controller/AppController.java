@@ -103,7 +103,6 @@ public class AppController {
 
     @RequestMapping(value = {"/delete-{id}-user"}, method = RequestMethod.GET)
     public String deleteUser(@PathVariable Integer id) {
-
         service.deleteUserById(id);
         return "redirect:/users/1";
     }

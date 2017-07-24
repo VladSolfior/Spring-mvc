@@ -6,12 +6,16 @@ import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.springframework.beans.support.PagedListHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 
 @Repository("userDao")
+@Transactional(readOnly = true)
 public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
+
+    private static final int PAGE_SIZE = 10;
 
 
     @Override
@@ -20,11 +24,13 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
     }
 
     @Override
+    @Transactional
     public void saveUser(User user) {
         persist(user);
     }
 
     @Override
+    @Transactional
     public void deleteUserById(int id) {
         Query query = getSession().createSQLQuery("delete from test where id = :id");
         query.setInteger("id", id);
@@ -47,7 +53,7 @@ public class UserDaoImpl extends AbstractDao<Integer, User> implements UserDao {
         Criteria criteria = createEntityCriteria();
         List<User> list = criteria.list();
         PagedListHolder<User> pagedListHolder = new PagedListHolder<User>(list);
-        pagedListHolder.setPageSize(10);
+        pagedListHolder.setPageSize(PAGE_SIZE);
         pagedListHolder.setPage(page);
         return pagedListHolder;
 
